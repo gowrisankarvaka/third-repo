@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="1c98328b-ffc8-44a4-ab83-dd1c4072c837" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="xyzFlow" doc:id="166d6ec4-cfce-498f-afa9-2f8c41b26f6f" >
+		<http:listener doc:name="Listener" doc:id="f3c85e86-7a4e-45ee-b3fe-6ec4f9b16596" config-ref="HTTP_Listener_config" path="/om"/>
+		<logger level="INFO" doc:name="project" doc:id="2cef6a87-4d82-4cd1-85f8-d269cde49024" message="project"/>
+		<set-payload value="#['done']" doc:name="project" doc:id="41afb77f-5932-4ef9-8ca9-5f7420fe4c9a" />
+	</flow>
+</mule>
